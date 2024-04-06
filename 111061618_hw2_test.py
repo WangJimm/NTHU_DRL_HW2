@@ -147,7 +147,7 @@ env = JoypadSpace(env, COMPLEX_MOVEMENT)
 agent = Agent()
 agent.eval_net.load_state_dict(torch.load('111061618_hw2_data.pth'))
 
-Episodes = 50
+Episodes = 1
 
 total_r = 0
 
@@ -164,11 +164,11 @@ for epi in tqdm(range(Episodes)):
         state_, reward, ter, info = env.step((action))
         #state_ = cv2.cvtColor(state_, cv2.COLOR_BGR2GRAY)
         #state_ = cv2.resize(state_, (int(state_.shape[0]/2), int(state_.shape[1]/2)), interpolation=cv2.INTER_AREA)
-        print(f"{info} ter :{ter}", end="\r")
+        #print(f"{info} ter :{ter}", end="\r")
 
         total_r += reward
         state = state_
         
         
 
-print(total_r/50)
+print(total_r)
